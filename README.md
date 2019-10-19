@@ -14,7 +14,7 @@
  + Tech Stack: Python 3.
 
  + Exercises: 
-   - see pdf [link]()
+   - see pdf [link](https://github.com/pdelfino/stochastic-process/blob/master/problem-set.pdf)
    
  + Support Material: lecture notes written by Professor Yuri [link](https://drive.google.com/file/d/0BwDJjYFvJgwNZFk1dmFKeExKblU/view)
  
