@@ -1,0 +1,19 @@
+Para facilitar o código, chamamos o estado 1 de 0, o 2 de 1, o 3 de 2, o 4 de 3 e o 5 de 4. Assim, o novo nome do estado coincide com seu índice na matriz. Dessa forma, usando a nova nomenclatura, temos:
+
+
+Estado de origem:  0 | Distribuição estacionária {'0': 0.42729999999996926, '1': 0, '2': 0.5725999999999533, '3': 0, '4': 0}
+
+
+Estado de origem:  1 | Distribuição estacionária {'0': 0.43189999999996875, '1': 0, '2': 0.5679999999999538, '3': 0, '4': 0}
+
+
+Estado de origem:  2 | Distribuição estacionária {'0': 0.429699999999969, '1': 0, '2': 0.5701999999999535, '3': 0, '4': 0}
+
+
+Estado de origem:  3 | Distribuição estacionária {'0': 0, '1': 0, '2': 0, '3': 0.39279999999997306, '4': 0.6070999999999495}
+
+
+Estado de origem:  4 | Distribuição estacionária {'0': 0, '1': 0, '2': 0, '3': 0.4012999999999721, '4': 0.5985999999999504}
+
+
+Como é possível ver, o resultado analítico e o experimento de simulação computacional são convergentes.
