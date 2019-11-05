@@ -1,59 +1,33 @@
 
 # coding: utf-8
 
-# In[99]:
+# In[6]:
 
 
 import matplotlib.pyplot as plt
 import numpy as np
 
 
-# In[124]:
+# In[59]:
 
 
-def brownian_motion(n, T): #n é o número de intervalos, T é o tempo final
+def brownian_motion(M, n, T): #M é o número de caminhos, n é o número de incrementos, T é o tempo final
     h = T/n
-    X = []
-    Y = []
-    max = 0
-    B = 0
-    for i in range(n):
-        Z = np.random.normal(0,h)
-        Y.append(B + Z)
-        X.append(i)
-        if max < B + Z:
-            max = B + Z
-    plt.plot(X, Y)
+    Z = np.sqrt(h) * np.random.normal(size = (M, N-1))
+    B = np.zeros(shape = (M, N))
+    B[:, 1:] = np.cumsum(Z, axis = 1)
+    m = np.max(B, axis = 1)
+    
+    plt.plot(np.linspace(0, 1, N), B[:10, :].T)
     plt.show()
-    return max
+    x = np.linspace(0, 3.5, 100)
+    y = ((2/(np.pi))**(1/2))*(np.exp((-x**2)/(2)))
+    plt.plot(x, y)
+    plt.hist(m, normed = True)
 
 
-# In[125]:
+# In[61]:
 
 
-brownian_motion(100, 1)
-
-
-# In[122]:
-
-
-hist = []
-for i in range(10000):
-    hist.append(brownian_motion(100, 1))
-
-
-# In[123]:
-
-
-plt.hist(hist)
-plt.show
-
-
-# In[108]:
-
-
-x = np.linspace(-5,5,100)
-y = ((2/(np.pi))**(1/2))*(np.exp((-x**2)/(2)))
-plt.plot(x, y)
-plt.show
+brownian_motion(1000, 100, 1)
 
