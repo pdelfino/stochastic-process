@@ -1,7 +1,7 @@
 import numpy as np
 import random
 
-P = np.array([[1/3,  0 , 2/3,  0 ],
+P = np.array([[1/3,  0 ,  0 , 2/3],
               [1/4, 1/2, 1/4,  0 ],
               [1/2,  0 , 1/2,  0 ],
               [ 0 , 1/3,  0 , 2/3]])
@@ -36,7 +36,7 @@ def stationary_state(initial_state,simulation_size):
 
     return ("initial state: ",str(initial_state)," | final state: ",str(final_state))
 
-print (stationary_state(0,5))
+#print (stationary_state(0,5))
 print ("Para facilitar o código, chamamos o estado 1 de 0, o 2 de 1, o 3 de 2, o 4 de 3 e o 5 de 4. Assim, o novo nome do estado coincide com seu índice na matriz. Dessa forma, usando a nova nomenclatura, temos:")
 print ("\n")
 
@@ -44,10 +44,11 @@ print ("\n")
 total = 0
 for i in range(2,1000):
     x_i = int((stationary_state(0,i)[-1]))+1
-    print ("x_i",x_i)
+    #print ("x_i",x_i)
     total += (x_i)**2 
-    print ("total",total/998)
-
+    
+    #print ("total",total/998)
+print (total/1000)
 
 print ("Como é possível ver, o resultado analítico e o experimento de simulação computacional são convergentes.")
 print ("resultado teórico: ", 39/7)
