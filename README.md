@@ -7,7 +7,7 @@
    - Pedro Delfino; 
    - Bruna Fistarol; and,
 - Danillo Fiorenza.
-   
+  
  + Professor: PhD Yuri Saporito
 
  + Date: 2019.2.
@@ -35,14 +35,13 @@
    
 
    A imagem abaixo ilustra bem as probabilidades de transição. Além disso, é possível perceber que os estados 2 é o único transiente. Todos os outros são recorrentes.  Outra característica evidente é separação em dois grafos, de modo que os estados 1, 2 e 3 não se comunicam com os estados 4 e 5.                                                               : 
-
-   ![](/home/pedro/Pictures/Screenshot from 2019-11-08 16-43-16.png)
-
-   A questão exige basicamente que a distribuição estacionária seja encontrada numericamente. Como simulação temos:
-
+![](/home/pedro/yuri/stochastic-process/diagrama.png)
+   
+A questão exige basicamente que a distribuição estacionária seja encontrada numericamente. Como simulação temos:
    
 
-   ```python
+   
+```python
    import numpy as np
    import random
    
@@ -103,16 +102,16 @@
    print ("Como é possível ver, o resultado analítico e o experimento de simulação computacional são convergentes.")
    
    ```
-
    
 
-   O código demora um pouco para rodar, já que são feitas **10 mil simulações**. Em cada simulação, modelamos o problema de modo que ocorreram 100 iterações aleatórias. Isto é, o processo iniciava em uma estado e, de acordo com as probabilidades associadas a cada estado, havia um **sorteio ponderado** para o próximo estado a ser visitado. Após 100 iterações, dava-se o último estado visitado como posição final.
-
+   
+O código demora um pouco para rodar, já que são feitas **10 mil simulações**. Em cada simulação, modelamos o problema de modo que ocorreram 100 iterações aleatórias. Isto é, o processo iniciava em uma estado e, de acordo com as probabilidades associadas a cada estado, havia um **sorteio ponderado** para o próximo estado a ser visitado. Após 100 iterações, dava-se o último estado visitado como posição final.
    
 
-   O código retorna este resultado:
-
-   ```python
+   
+O código retorna este resultado:
+   
+```python
    
    Estado de origem:  0 | Distribuição estacionária {'0': 0.4339999999999685, '1': 0, '2': 0.565899999999954, '3': 0, '4': 0}
    
@@ -132,12 +131,12 @@
    Como é possível ver, o resultado analítico e o experimento de simulação computacional são convergentes.
    
    ```
-
    
 
-   Portanto, os resultados estão convergindo para os valores corretos.
-
    
+Portanto, os resultados estão convergindo para os valores corretos.
+   
+
 
 ----
 
@@ -439,9 +438,7 @@ brownian_motion(1000, 100, 1)
 
 Imagem que retorna:
 
-
-
-![](/home/pedro/Pictures/Screenshot from 2019-11-08 17-41-04.png)
+![](/home/pedro/yuri/stochastic-process/questao-6.png)
 
 
 
@@ -453,5 +450,5 @@ Imagem que retorna:
 
 
 
-Não tá retornando nada.
+Não tá retornando nada o código da Black and Scholes.
 
