@@ -48,7 +48,7 @@ for i in range(2,1000):
     total += (x_i)**2 
     
     #print ("total",total/998)
-print (total/1000)
+print (total/998)
 
 print ("Como é possível ver, o resultado analítico e o experimento de simulação computacional são convergentes.")
-print ("resultado teórico: ", 39/7)
+print ("resultado teórico: ", 8.751)

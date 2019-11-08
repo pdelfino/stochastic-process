@@ -23,13 +23,16 @@
  + Support Material:
 
     +  [lecture notes](https://drive.google.com/file/d/0BwDJjYFvJgwNZFk1dmFKeExKblU/view) written by Professor Yuri; 
+
     + Introduction To Stochastic Process With R.
 
-   
+      
+
+   ---
 
    ### Questão 1
 
-   ----
+   
 
    A imagem abaixo ilustra bem as probabilidades de transição. Além disso, é possível perceber que os estados 2 é o único transiente. Todos os outros são recorrentes.  Outra característica evidente é separação em dois grafos, de modo que os estados 1, 2 e 3 não se comunicam com os estados 4 e 5.                                                               : 
 
@@ -134,16 +137,70 @@
 
    Portanto, os resultados estão convergindo para os valores corretos.
 
-   ----
-
    
+
+----
+
+
 
 ### Questão 2
 
 O Código é 
 
 ```python
+import numpy as np
+import random
 
+P = np.array([[1/3,  0 ,  0 , 2/3],
+              [1/4, 1/2, 1/4,  0 ],
+              [1/2,  0 , 1/2,  0 ],
+              [ 0 , 1/3,  0 , 2/3]])
+
+#print (np.matmul(P,P))
+
+def stationary_state(initial_state,simulation_size):
+    states = [0,1,2,3]
+
+    initial_state_weigth_options = initial_state 
+    #print ("initial_state_weigth_options",initial_state_weigth_options)
+    #print ("P[",str(initial_state_weigth_options),"]",P[initial_state_weigth_options])
+
+    n = simulation_size
+    
+    for i in range(1,n):
+
+        next_state = (random.choices(states, P[initial_state_weigth_options]))
+        next_state = next_state[0]
+        #print ("next_state", next_state)
+
+        initial_state_weigth_options = next_state
+        #print ("new initial state", initial_state_weigth_options)
+        
+        next_state = (random.choices(states,P[initial_state_weigth_options]))
+        next_state = next_state[0]
+        #print ("next_state", next_state)
+        
+        initial_state_weigth_options = next_state
+
+    final_state = next_state
+
+    return ("initial state: ",str(initial_state)," | final state: ",str(final_state))
+
+#print (stationary_state(0,5))
+print ("Para facilitar o código, chamamos o estado 1 de 0, o 2 de 1, o 3 de 2, o 4 de 3 e o 5 de 4. Assim, o novo nome do estado coincide com seu índice na matriz. Dessa forma, usando a nova nomenclatura, temos:")
+print ("\n")
+
+
+total = 0
+for i in range(2,1000):
+    x_i = int((stationary_state(0,i)[-1]))+1
+    #print ("x_i",x_i)
+    total += (x_i)**2 
+    #print ("total",total/998)
+print (total/998)
+
+print ("Como é possível ver, o resultado analítico e o experimento de simulação computacional são convergentes.")
+print ("resultado teórico: ", 39/7)
 ```
 
 
@@ -158,8 +215,140 @@ Para facilitar o código, chamamos o estado 1 de 0, o 2 de 1, o 3 de 2, o 4 de 3
 
 
 Como é possível ver, o resultado analítico e o experimento de simulação computacional são convergentes.
-resultado teórico:  5.571428571428571
+resultado teórico: 8.751
 ```
+
+
+
+O resultado teórico é 8.974. E, numericamente, o valor encontrado foi:  
+
+
+
+----
+
+
+
+### Questão 3
+
+
+
+
+
+```python3
+import random
+import matplotlib.pyplot as plt
+
+def martingal():
+    a = 0
+    m0 = 1
+    v = []
+    for i in range(100):
+        a = random.random()
+        if a > 0.5:
+            m0 = m0*(1/2)
+        else:
+            m0 = m0*(3/2)
+        v.append(m0)
+    plt.plot(v)
+    plt.axis([0, 100, 0, 0.5])
+    plt.show()
+    print(m0)
+
+for i in range(100):
+    martingal()
+
+```
+
+Dúvida - Bruna tinha colocado para gerar 1000 imagens. É para fazer assim mesmo?
+
+
+
+
+
+----
+
+
+
+### Questão 4
+
+
+
+```python
+import numpy as np
+import random
+
+def questao4_1():
+    s = 0
+    Tn = []
+    x = 0
+    while s + x < 5:
+        s += x
+        Tn.append(x)
+        x = np.random.exponential(1)
+    Tn.append(5-s) 
+    
+    #print(Tn)
+    
+    Nt =  0
+    for i in range(1, len(Tn)-1):
+        Nt += i*Tn[i]
+        
+    return Nt
+
+print ("item 1 :",questao4_1())
+
+s=0
+for i in range(100000):
+    s+=questao4_1()
+print ("s/100000: ", s/100000)
+
+def questao4_2():
+    n = np.random.poisson(5)
+    Tn = []
+    for i in range(0, n):
+        Tn.append(np.random.uniform(0., 5.))
+    Tn.sort()
+    Tn.append(5)
+    Nt = 0
+    for i in range(1, len(Tn)):
+        Nt += (i)*(Tn[i]-Tn[i-1])       
+    return Nt
+
+
+print ("item 2: ",questao4_2()) 
+
+s=0
+for i in range(100000):
+    s+=questao4_2()
+print ("s/100000",s/100000)
+
+```
+
+
+
+----
+
+
+
+### Questão 5
+
+
+
+
+
+
+
+
+
+----
+
+### Questão 6
+
+
+
+----
+
+### Questão 7
 
 
 

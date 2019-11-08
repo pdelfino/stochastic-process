@@ -1,8 +1,5 @@
-
-# coding: utf-8
-
-# In[92]:
-
+import random
+import matplotlib.pyplot as plt
 
 def martingal():
     a = 0
@@ -20,10 +17,6 @@ def martingal():
     plt.show()
     print(m0)
 
-
-# In[110]:
-
-
-for i in range(1000):
+for i in range(1):
     martingal()
 

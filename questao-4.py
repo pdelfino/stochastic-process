@@ -1,15 +1,5 @@
-
-# coding: utf-8
-
-# In[517]:
-
-
 import numpy as np
 import random
-
-
-# In[604]:
-
 
 def questao4_1():
     s = 0
@@ -29,24 +19,12 @@ def questao4_1():
         
     return Nt
 
-
-# In[605]:
-
-
-questao4_1()
-
-
-# In[606]:
-
+print ("item 1 :",questao4_1())
 
 s=0
 for i in range(100000):
     s+=questao4_1()
-s/100000
-
-
-# In[764]:
-
+print ("s/100000: ", s/100000)
 
 def questao4_2():
     n = np.random.poisson(5)
@@ -61,17 +39,10 @@ def questao4_2():
     return Nt
 
 
-# In[765]:
-
-
-questao4_2()
-
-
-# In[766]:
-
+print ("item 2: ",questao4_2()) 
 
 s=0
 for i in range(100000):
     s+=questao4_2()
-s/100000
+print ("s/100000",s/100000)
 
