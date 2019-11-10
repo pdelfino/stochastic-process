@@ -1,15 +1,5 @@
-
-# coding: utf-8
-
-# In[3]:
-
-
 import numpy as np
 import matplotlib.pyplot as plt
-
-
-# In[13]:
-
 
 def black_scholes(n): #n é o número de valores S gerados
     W = np.random.normal(size = n)
@@ -20,11 +10,7 @@ def black_scholes(n): #n é o número de valores S gerados
         C[k] = np.mean(np.exp(-0.05) * np.maximum(S - K[k], 0.0))
     
     plt.plot(K, C)
-    plt.show
+    plt.show()
 
-
-# In[14]:
-
-
-black_scholes(100)
+print (black_scholes(100))
 

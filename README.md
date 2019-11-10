@@ -26,15 +26,14 @@
 
    + Introduction To Stochastic Process With R - Roberto Dobrow.
 
-     
-
-   ---
-
-   ### Questão 1
-
+   
+---
+   
+### Questão 1
    
 
-   A imagem abaixo ilustra bem as probabilidades de transição. Além disso, é possível perceber que os estados 2 é o único transiente. Todos os outros são recorrentes.  Outra característica evidente é separação em dois grafos, de modo que os estados 1, 2 e 3 não se comunicam com os estados 4 e 5.                                                               : 
+   
+A imagem abaixo ilustra bem as probabilidades de transição. Além disso, é possível perceber que os estados 2 é o único transiente. Todos os outros são recorrentes.  Outra característica evidente é separação em dois grafos, de modo que os estados 1, 2 e 3 não se comunicam com os estados 4 e 5.                                                               : 
    ![](https://github.com/pdelfino/stochastic-process/blob/master/diagrama.png)
 
 
@@ -141,8 +140,6 @@ Portanto, os resultados estão convergindo para os valores corretos.
 
 ----
 
-
-
 ### Questão 2
 
 O Código é 
@@ -205,8 +202,6 @@ print ("resultado teórico: ", 39/7)
 
 
 
-
-
 O código retorna como output:
 
 
@@ -225,8 +220,6 @@ O resultado teórico é 8.751. E, numericamente, o valor encontrado foi:  8.751
 
 
 ----
-
-
 
 ### Questão 3
 
@@ -270,11 +263,7 @@ A imagem retornada é:
 
 
 
-
-
 ----
-
-
 
 ### Questão 4
 
@@ -351,19 +340,13 @@ plt.show()
 
 
 
-
-
 A imagem retornada é:
 
 ![](https://github.com/pdelfino/stochastic-process/blob/master/questao-4.png)
 
 
 
-
-
 ----
-
-
 
 ### Questão 5
 
@@ -432,18 +415,7 @@ O código retorna:
 
 ### Questão 6
 
-Mudei a questão do N e do n. Antes não tava rodando:
-
---
-
-Mudei:
-
-def brownian_motion(M, **N**, T): #M é o número de caminhos, n é o número de incrementos, T é o tempo final
-    h = T/**N**
-
---
-
- Fiquei na dúvida se está certo o código.
+O código é
 
 
 
@@ -486,5 +458,29 @@ Imagem que retorna:
 
 
 
-Não tá retornando nada o código da Black and Scholes.
+O código é:
 
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+def black_scholes(n): #n é o número de valores S gerados
+    W = np.random.normal(size = n)
+    S = 100*np.exp(-0.055 + W*0.04)
+    K = np.linspace(80, 120, 9)
+    C = np.zeros(shape = 9)
+    for k in range(9):
+        C[k] = np.mean(np.exp(-0.05) * np.maximum(S - K[k], 0.0))
+    
+    plt.plot(K, C)
+    plt.show()
+
+print (black_scholes(100))
+
+```
+
+
+
+Imagem que retorna:
+
+![](https://github.com/pdelfino/stochastic-process/blob/master/questao-7.png)
