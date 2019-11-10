@@ -24,7 +24,7 @@
 
    +  [lecture notes](https://drive.google.com/file/d/0BwDJjYFvJgwNZFk1dmFKeExKblU/view) written by Professor Yuri; 
 
-   + Introduction To Stochastic Process With R.
+   + Introduction To Stochastic Process With R - Roberto Dobrow.
 
      
 
@@ -215,12 +215,12 @@ Para facilitar o código, chamamos o estado 1 de 0, o 2 de 1, o 3 de 2, o 4 de 3
 
 
 Como é possível ver, o resultado analítico e o experimento de simulação computacional são convergentes.
-resultado teórico: 8.751
+resultado teórico: 8.7
 ```
 
 
 
-O resultado teórico é 8.974. E, numericamente, o valor encontrado foi:  
+O resultado teórico é 8.751. E, numericamente, o valor encontrado foi:  8.751
 
 
 
@@ -232,34 +232,41 @@ O resultado teórico é 8.974. E, numericamente, o valor encontrado foi:
 
 
 
+Para simular os passos do Martingal, fizemos:
+
 
 
 ```python3
+
 import random
 import matplotlib.pyplot as plt
 
 def martingal():
-    a = 0
-    m0 = 1
-    v = []
-    for i in range(100):
-        a = random.random()
-        if a > 0.5:
-            m0 = m0*(1/2)
-        else:
-            m0 = m0*(3/2)
-        v.append(m0)
-    plt.plot(v)
-    plt.axis([0, 100, 0, 0.5])
+    for j in range(10):
+        a = 0
+        m0 = 1
+        v = []
+        for i in range(100):
+            a = random.random()
+            if a > 0.5:
+                m0 = m0*(1/2)
+            else:
+                m0 = m0*(3/2)
+            v.append(m0)
+        plt.plot(v)
+        plt.axis([0, 100, 0, 0.5])
+        print(m0)
     plt.show()
-    print(m0)
 
-for i in range(100):
-    martingal()
+martingal()
 
 ```
 
-Dúvida - Bruna tinha colocado para gerar 1000 imagens. É para fazer assim mesmo?
+
+
+A imagem retornada é:
+
+![](https://github.com/pdelfino/stochastic-process/blob/master/questao-3-novo-martingal.png)
 
 
 

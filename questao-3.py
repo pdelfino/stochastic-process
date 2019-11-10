@@ -1,9 +1,4 @@
 
-# coding: utf-8
-
-# In[3]:
-
-
 import random
 import matplotlib.pyplot as plt
 
@@ -23,10 +18,6 @@ def martingal():
         plt.axis([0, 100, 0, 0.5])
         print(m0)
     plt.show()
-
-
-# In[5]:
-
 
 martingal()
 
