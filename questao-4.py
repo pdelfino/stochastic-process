@@ -1,16 +1,6 @@
-
-# coding: utf-8
-
-# In[139]:
-
-
 import numpy as np
 import random
 import matplotlib.pyplot as plt
-
-
-# In[140]:
-
 
 def questao4_1():
     s = 0
@@ -25,8 +15,6 @@ def questao4_1():
     Xn.append(5-s)
     Tn.append(5)
     
-    #print(Tn)
-    
     It =  0
     Nt = [0]
     for i in range(1, len(Xn)-1):
@@ -35,37 +23,18 @@ def questao4_1():
         
     return Xn, Nt, Tn, It
 
-
-# In[163]:
-
-
 Xn, Nt, Tn, It = questao4_1()
 
-
-# In[164]:
-
-
-Nt, Tn
-
-
-# In[36]:
-
+print (Nt, Tn)
 
 plt.step(Tn, Nt + [Nt[-1]], where='post')
-
-
-# In[40]:
-
 
 s=0
 for i in range(100000):
     _, _, _, It = questao4_1()
     s += It
-s/100000
 
-
-# In[170]:
-
+print (s/100000)
 
 def questao4_2():
     n = np.random.poisson(5)
@@ -82,31 +51,16 @@ def questao4_2():
             Nt.append(i)
     return It, Nt, Tn
 
-
-# In[171]:
-
-
 In, Nt, Tn = questao4_2()
 
-
-# In[172]:
-
-
-Nt, Tn
-
-
-# In[173]:
-
+print (Nt, Tn)
 
 plt.step(Tn, Nt + [Nt[-1]], where='post')
-
-
-# In[174]:
-
 
 s=0
 for i in range(100000):
     It, _, _, = questao4_2()
     s += It
-s/100000
+print (s/100000)
 
+plt.show()

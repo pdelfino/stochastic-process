@@ -236,7 +236,7 @@ Para simular os passos do Martingal, fizemos:
 
 
 
-```python3
+```python
 
 import random
 import matplotlib.pyplot as plt
@@ -283,31 +283,41 @@ A imagem retornada é:
 ```python
 import numpy as np
 import random
+import matplotlib.pyplot as plt
 
 def questao4_1():
     s = 0
+    Xn = []
     Tn = []
     x = 0
     while s + x < 5:
         s += x
-        Tn.append(x)
+        Xn.append(x)
         x = np.random.exponential(1)
-    Tn.append(5-s) 
+        Tn.append(s)
+    Xn.append(5-s)
+    Tn.append(5)
     
-    #print(Tn)
-    
-    Nt =  0
-    for i in range(1, len(Tn)-1):
-        Nt += i*Tn[i]
+    It =  0
+    Nt = [0]
+    for i in range(1, len(Xn)-1):
+        Nt.append(i)
+        It += i*Xn[i]
         
-    return Nt
+    return Xn, Nt, Tn, It
 
-print ("item 1 :",questao4_1())
+Xn, Nt, Tn, It = questao4_1()
+
+print (Nt, Tn)
+
+plt.step(Tn, Nt + [Nt[-1]], where='post')
 
 s=0
 for i in range(100000):
-    s+=questao4_1()
-print ("s/100000: ", s/100000)
+    _, _, _, It = questao4_1()
+    s += It
+
+print (s/100000)
 
 def questao4_2():
     n = np.random.poisson(5)
@@ -316,20 +326,38 @@ def questao4_2():
         Tn.append(np.random.uniform(0., 5.))
     Tn.sort()
     Tn.append(5)
-    Nt = 0
+    It = 0
+    Nt = [0]
     for i in range(1, len(Tn)):
-        Nt += (i)*(Tn[i]-Tn[i-1])       
-    return Nt
+        It += (i)*(Tn[i]-Tn[i-1]) 
+        if i != len(Tn)-1:
+            Nt.append(i)
+    return It, Nt, Tn
 
+In, Nt, Tn = questao4_2()
 
-print ("item 2: ",questao4_2()) 
+print (Nt, Tn)
+
+plt.step(Tn, Nt + [Nt[-1]], where='post')
 
 s=0
 for i in range(100000):
-    s+=questao4_2()
-print ("s/100000",s/100000)
+    It, _, _, = questao4_2()
+    s += It
+print (s/100000)
 
+plt.show()
 ```
+
+
+
+
+
+A imagem retornada é:
+
+![](https://github.com/pdelfino/stochastic-process/blob/master/questao-4.png)
+
+
 
 
 
