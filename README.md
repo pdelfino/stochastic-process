@@ -422,19 +422,30 @@ O código retorna:
 
 ### Questão 6
 
-O código é
-
-
+O código é:
 
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
 
-def brownian_motion(M, N, T): #M é o número de caminhos, n é o número de incrementos, T é o tempo final
+def brownian_motion(M, N, T): 
+    # M é o número de caminhos, 
+    # n é o número de incrementos, 
+    # T é o tempo final
+    
+    # h é o tamanho do intervalo
     h = T/N
+    
+	# z é a matriz de tamanho Mx(N-1) de N(0,h)
     Z = np.sqrt(h) * np.random.normal(size = (M, N-1))
+    
+    # B é o vetor de zeros MxN
     B = np.zeros(shape = (M, N))
+    
+	#B[:,1:] é a soma acumulada nas linhas de Z
     B[:, 1:] = np.cumsum(Z, axis = 1)
+    
+    # max de cada linha de B
     m = np.max(B, axis = 1)
     
     plt.plot(np.linspace(0, 1, N), B[:10, :].T)
@@ -451,7 +462,7 @@ brownian_motion(1000, 100, 1)
 
 
 
-Imagem que retorna:
+A imagem que o código retorna reflete a forma gráfica  típica de um movimento browniano. Apesar de contínua, a função gerada não é diferenciável em vários pontos por não ser "smooth", haja vista as várias "quinas":
 
 ![](https://github.com/pdelfino/stochastic-process/blob/master/questao-6.png)
 
@@ -469,7 +480,7 @@ O histograma, por sua vez, é:
 
 ### Questão 7
 
-
+A fórmula de Black-Scholes está inserida no contexto de opções. Isto é, trata-se de um contrato financeiro em que uma das partes compra a opção  de exercer de comprar um ativo (ação, commoditie, instrumento ou título de dívida). Há de ser ressaltado que a opção não vincula o comprador, isto é, ele não é obrigado a exercê-la.
 
 O código é:
 
@@ -478,9 +489,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def black_scholes(n): #n é o número de valores S gerados
+
+    # valores dentro da distribuição normal
     W = np.random.normal(size = n)
+
+    #S é o preço atual da opção
     S = 100*np.exp(-0.055 + W*0.04)
+
+    # Preço fixado da opção (pode ser de compra ou de venda)
     K = np.linspace(80, 120, 9)
+	
+	#
     C = np.zeros(shape = 9)
     for k in range(9):
         C[k] = np.mean(np.exp(-0.05) * np.maximum(S - K[k], 0.0))
