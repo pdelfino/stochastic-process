@@ -466,13 +466,15 @@ A imagem que o código retorna reflete a forma gráfica  típica de um movimento
 
 ![](https://github.com/pdelfino/stochastic-process/blob/master/questao-6.png)
 
+Cada uma das curvas de diferentes cores simboliza um caminho distinto. O eixo X simboliza o tempo e o eixo Y, por sua vez, representa a posição no tempo.
 
+Outro comentário interessante que pode ser feito é sobre a grande probabilidade **(quase certamente)** de que os caminhos ficam entre `y=sqrt(x)` e `y=-sqrt(x`.
 
-O histograma, por sua vez, é:
+O histograma abaixo, por sua vez, indica o ponto máximo alcançando por cada caminho:
 
 ![](https://github.com/pdelfino/stochastic-process/blob/master/questao-6-hist.png)
 
-
+Um comentário interessante que pode ser feito é a comparação entre a desindade exata da distribuição normal padronizada (em azul) e a distribuição encontrada empiricamente (em laranja) para o ponto máximo atingido.
 
 ----
 
