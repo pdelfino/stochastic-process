@@ -14,7 +14,7 @@ def brownian_motion(M, N, T): #M é o número de caminhos, n é o número de inc
     y = ((2/(np.pi))**(1/2))*(np.exp((-x**2)/(2)))
     plt.plot(x, y)
     plt.hist(m, normed = True)
-
+    plt.show()
 
 brownian_motion(1000, 100, 1)
 

@@ -28,11 +28,11 @@
 
    
 ---
-   
-### Questão 1
-   
 
-   
+### Questão 1
+
+
+
 A imagem abaixo ilustra bem as probabilidades de transição. Além disso, é possível perceber que os estados 2 é o único transiente. Todos os outros são recorrentes.  Outra característica evidente é separação em dois grafos, de modo que os estados 1, 2 e 3 não se comunicam com os estados 4 e 5.                                                               : 
    ![](https://github.com/pdelfino/stochastic-process/blob/master/diagrama.png)
 
@@ -210,12 +210,12 @@ Para facilitar o código, chamamos o estado 1 de 0, o 2 de 1, o 3 de 2, o 4 de 3
 
 
 Como é possível ver, o resultado analítico e o experimento de simulação computacional são convergentes.
-resultado teórico: 8.7
+resultado teórico: 8.751
 ```
 
 
 
-O resultado teórico é 8.751. E, numericamente, o valor encontrado foi:  8.751
+O resultado teórico é 8.751. E, numericamente, o valor encontrado foi:  8.683366733466935
 
 
 
@@ -447,6 +447,12 @@ brownian_motion(1000, 100, 1)
 Imagem que retorna:
 
 ![](https://github.com/pdelfino/stochastic-process/blob/master/questao-6.png)
+
+
+
+O histograma, por sua vez, é:
+
+![](https://github.com/pdelfino/stochastic-process/blob/master/questao-6-hist.png)
 
 
 
