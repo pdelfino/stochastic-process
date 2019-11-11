@@ -197,7 +197,7 @@ for i in range(2,1000):
 print (total/998)
 
 print ("Como é possível ver, o resultado analítico e o experimento de simulação computacional são convergentes.")
-print ("resultado teórico: ", 39/7)
+print ("resultado teórico: ", 133/15)
 ```
 
 
@@ -210,12 +210,12 @@ Para facilitar o código, chamamos o estado 1 de 0, o 2 de 1, o 3 de 2, o 4 de 3
 
 
 Como é possível ver, o resultado analítico e o experimento de simulação computacional são convergentes.
-resultado teórico: 8.751
+resultado teórico: 8.86
 ```
 
 
 
-O resultado teórico é 8.751. E, numericamente, o valor encontrado foi:  8.683366733466935
+O resultado teórico é 8.86. E, numericamente, o valor encontrado foi:  8.683366733466935
 
 
 
