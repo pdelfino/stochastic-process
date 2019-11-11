@@ -136,7 +136,9 @@ O código retorna este resultado:
 
 Portanto, os resultados estão convergindo para os valores corretos.
 
+A demonstração do valor teórico está na imagem abaixo. Infelizmente, não foi possível, no tempo disponível, usar o LaTeX dentro desse Markdown:
 
+![](https://github.com/pdelfino/stochastic-process/blob/master/teorico-2.png)
 
 ----
 
@@ -216,6 +218,12 @@ resultado teórico: 8.86
 
 
 O resultado teórico é 8.86. E, numericamente, o valor encontrado foi:  8.683366733466935
+
+
+
+A demonstração do valor teórico está na imagem abaixo. Infelizmente, não foi possível, no tempo disponível, usar o LaTeX dentro desse Markdown:
+
+![](https://github.com/pdelfino/stochastic-process/blob/master/teorico-3.png)
 
 
 
