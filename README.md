@@ -363,25 +363,19 @@ Portanto, o resultado teórico e empírico-numérico-estocástico é o mesmo.
 
 
 
-Seguindo a seção 6.3  das notas de aula e com a ajuda da Victória e do Hugo, colegas do curso, obtivemos:
+Seguindo a seção 6.3  das notas de aula e com a ajuda da Victória e do Hugo, colegas do curso, conseguimos os resultados abaixo.
 
-Dado um vetor X, com poucos pontos, vetor Y que vc observa os valores de X, que também tem poucos pontos.
+Cabe ainda, fazer algumas explicações: 
 
-Distribuição Bayesiana. Queremos descobrir a posteriori.
+- o vetor X tem poucos pontos
+- o que está em jogo é uma distribuição Bayesiana e queremos descobrir a distribuição a posteriori.
+- Queremos a distribuição de Y* no intervalo fornecido.
+- Era para fazer X* de -pi até +pi, acabamos fazendo de -5 a +5 pois fomo como a Victória explicou
+- Queremos a distribuição de Y*, dado X, X* e Y
+- Nas notas temos os valores da média e da covariance
+- Y* é uma normal multivariada
 
-Pegamos um vetor X* com pontos igualmente espaçados na reta
 
-Queremos a distrbuição de Y* no intervalo dado 
-
-X* -pi a pi igualmente separados
-
-Aqui fizemos de -5  a 5
-
-Queremos a distribuição de Y* dado X, X*, Y
-
-Nas notas temos os valores da média e da covar
-
-Y* é uma normal multivariada
 
 ```python
 import numpy as np
