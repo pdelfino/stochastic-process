@@ -482,7 +482,7 @@ Um comentário interessante que pode ser feito é a comparação entre a desinda
 
 ### Questão 7
 
-A fórmula de Black-Scholes está inserida no contexto de opções. Isto é, trata-se de um contrato financeiro em que uma das partes compra a opção  de exercer de comprar um ativo (ação, commoditie, instrumento ou título de dívida). Há de ser ressaltado que a opção não vincula o comprador, isto é, ele não é obrigado a exercê-la.
+A fórmula de Black-Scholes está inserida no contexto de opções. Isto é, trata-se de um contrato financeiro em que uma das partes compra a opção de comprar um ativo (ação, commoditie, instrumento ou título de dívida). Há de ser ressaltado que a opção não vincula o comprador, isto é, ele não é obrigado a exercê-la.
 
 O código é:
 
@@ -492,16 +492,16 @@ import matplotlib.pyplot as plt
 
 def black_scholes(n): #n é o número de valores S gerados
 
-    # valores dentro da distribuição normal
+    # um vetor com valores dentro da distribuição normal padronizada
     W = np.random.normal(size = n)
 
-    #S é o preço atual da opção
+    # S (Current Stock) é o preço atual da opção calculado em cima dos valores de W
     S = 100*np.exp(-0.055 + W*0.04)
 
-    # Preço fixado da opção (pode ser de compra ou de venda)
+    # Preço fixado (Striking price) da opção (pode ser de compra ou de venda)
     K = np.linspace(80, 120, 9)
 	
-	#
+	# C é o Preço da Opção (Call Option Price)
     C = np.zeros(shape = 9)
     for k in range(9):
         C[k] = np.mean(np.exp(-0.05) * np.maximum(S - K[k], 0.0))
@@ -512,6 +512,14 @@ def black_scholes(n): #n é o número de valores S gerados
 print (black_scholes(100))
 
 ```
+
+Apenas para esclarecimento, é importante diferenciar a call option price (C), o current price (S) e o strike price (K). Nesse sentido, vamos usar um exemplo da ação da Petrobrás.
+
+Suponhamos que a ação da Petrobrás valha  10 reais **hoje** (11 de Novembro de 2019). Esse é o current price, isto é, preço atual. Suponhamos ainda que o investidor *Yuri Lobo de Faria Lima* deseja comprar uma opção sobre esta ação.
+
+Assim, suponhamos que o preço da opção no mercado seja 50 centavos. No contrato financeiro, Yuri tem o direito de exercer essa compra até 31 de Dezembro de 2019 e de comprar a ação por 12 reais. Nesse caso, 50 centavos é o Call option price e 12 reais é o Striking Price.
+
+Depois de uma revolução e uma verdadeira faxina no país, vários corruptos voltam para a cadeia (#lulaPreso) e a ação da Petrobrás passou a valer 100 reais no final de Novembro. Yuri, muito esperto, decide exercer sua opção de compra. Dessa forma, o nosso investidor exerce sua opção de compra, adquire a ação da Petrobrás por 12 reais e, no instante seguinte, a vende no mercado por 100 reais. Com isso, faz um belo retorno de 87.5 reais.
 
 
 
