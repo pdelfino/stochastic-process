@@ -25,7 +25,7 @@ def questao4_1():
 
 Xn, Nt, Tn, It = questao4_1()
 
-print (Nt, Tn)
+#print (Nt, Tn)
 
 plt.step(Tn, Nt + [Nt[-1]], where='post')
 
@@ -34,7 +34,7 @@ for i in range(100000):
     _, _, _, It = questao4_1()
     s += It
 
-print (s/100000)
+print ("s/100000 no tópico (i): ",s/100000)
 
 def questao4_2():
     n = np.random.poisson(5)
@@ -53,7 +53,7 @@ def questao4_2():
 
 In, Nt, Tn = questao4_2()
 
-print (Nt, Tn)
+#print (Nt, Tn)
 
 plt.step(Tn, Nt + [Nt[-1]], where='post')
 
@@ -61,6 +61,7 @@ s=0
 for i in range(100000):
     It, _, _, = questao4_2()
     s += It
-print (s/100000)
+
+print ("s/100000 no tópico (ii):",s/100000)
 
 plt.show()
