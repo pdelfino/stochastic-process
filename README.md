@@ -138,7 +138,7 @@ Portanto, os resultados estão convergindo para os valores corretos.
 
 A demonstração do valor teórico está na imagem abaixo. Infelizmente, não foi possível, no tempo disponível, usar o LaTeX dentro desse Markdown:
 
-![](https://github.com/pdelfino/stochastic-process/blob/master/teorica-1.png)
+![](https://github.com/pdelfino/stochastic-process/blob/master/teorica-1.jpg)
 
 ----
 
@@ -223,7 +223,7 @@ O resultado teórico é 8.86. E, numericamente, o valor encontrado foi:  8.68336
 
 A demonstração do valor teórico está na imagem abaixo. Infelizmente, não foi possível, no tempo disponível, usar o LaTeX dentro desse Markdown:
 
-![](https://github.com/pdelfino/stochastic-process/blob/master/teorica-2.png)
+![](https://github.com/pdelfino/stochastic-process/blob/master/teorica-2.jpg)
 
 
 
