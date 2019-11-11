@@ -40,5 +40,6 @@ plt.plot(Xn,mu,label="Média")
 plt.gca().fill_between(Xn, mu-2*stdv,mu+2*stdv,color="#dddddd",label="intervalo de confiança")
 plt.plot(Xn,mu,"y--",lw=2,label="função aproximada")
 plt.axis([-5,5,-3,3])
+plt.legend()
 plt.show()
 

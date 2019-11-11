@@ -344,6 +344,8 @@ A imagem retornada é:
 
 ![](https://github.com/pdelfino/stochastic-process/blob/master/questao-4.png)
 
+Nesse caso, cada salto é uma chegada.
+
 O output gerado é:
 
 ```python
@@ -351,7 +353,9 @@ s/100000 no tópico (i):  12.503331366866945
 s/100000 no tópico (ii): 12.508935816992528
 ```
 
+O resultado teórico é uma integral simples que resulta em `25/2`,isto é, exatamente 12.5.
 
+Portanto, o resultado teórico e empírico-numérico-estocástico é o mesmo.
 
 ----
 
@@ -359,17 +363,36 @@ s/100000 no tópico (ii): 12.508935816992528
 
 
 
-Seguindo a seção 9.5 das notas de aula e com a ajuda da Victória e do Hugo, colegas do curso, obtivemos:
+Seguindo a seção 6.3  das notas de aula e com a ajuda da Victória e do Hugo, colegas do curso, obtivemos:
 
+Dado um vetor X, com poucos pontos, vetor Y que vc observa os valores de X, que também tem poucos pontos.
 
+Distribuição Bayesiana. Queremos descobrir a posteriori.
+
+Pegamos um vetor X* com pontos igualmente espaçados na reta
+
+Queremos a distrbuição de Y* no intervalo dado 
+
+X* -pi a pi igualmente separados
+
+Aqui fizemos de -5  a 5
+
+Queremos a distribuição de Y* dado X, X*, Y
+
+Nas notas temos os valores da média e da covar
+
+Y* é uma normal multivariada
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 
+#xl é o x linha
+# exemplo 6.2.2 da apostila
 def kernel_f(x,xl,sigma,l):
     return sigma**2*np.exp(-5.*(1/l**2)*(x-xl)**2)
 
+# calculando a matriz do Kzão
 def K(X,Xl,sigma,l):
     n, m = X.shape[0],Xl.shape[0]
     K = np.zeros((n,m))
@@ -378,7 +401,9 @@ def K(X,Xl,sigma,l):
             K[i,j] = kernel_f(X[i], Xl[j], sigma, l)
     return K
 
+#retorna a média e a covariância, pag 95 da apostila
 def exercicio5(X, X_new, Y, sigma):
+    #constrói as 4 matrizes e faz a conta
     KXX = K(X,X,1,1)
     KXnX = K(X_new, X, 1, 1)
     KXXn = K(X,X_new, 1, 1)
@@ -406,6 +431,7 @@ plt.plot(Xn,mu,label="Média")
 plt.gca().fill_between(Xn, mu-2*stdv,mu+2*stdv,color="#dddddd",label="intervalo de confiança")
 plt.plot(Xn,mu,"y--",lw=2,label="função aproximada")
 plt.axis([-5,5,-3,3])
+plt.legend()
 plt.show()
 
 ```
@@ -416,7 +442,15 @@ O código retorna:
 
 ![](https://github.com/pdelfino/stochastic-process/blob/master/questao-5.png)
 
+O Y é o seno de x mais o ruído (epsolon). A área de cinza expressa o intervalo de confiança.
 
+A linha de amarela é a função seno
+
+A linha em verde pontilhada é a média
+
+O ponto de azul é o observado
+
+O trace
 
 ----
 
