@@ -14,7 +14,7 @@
 
  + Tech Stack: Python 3.6.8.  
 
-    + **Atenção,** a específicação acima é especialmente importante para a função random.choices do pacote random. 
+    + **Atenção,** a especificação acima é especialmente importante para a função random.choices do pacote random. 
 
  + Exercises: 
 
@@ -343,6 +343,13 @@ plt.show()
 A imagem retornada é:
 
 ![](https://github.com/pdelfino/stochastic-process/blob/master/questao-4.png)
+
+O output gerado é:
+
+```python
+s/100000 no tópico (i):  12.503331366866945
+s/100000 no tópico (ii): 12.508935816992528
+```
 
 
 
