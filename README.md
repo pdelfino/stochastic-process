@@ -1,6 +1,6 @@
 # Stochastic Processes -- Simulation Assignments
 
-![The Cardsharps](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Caravaggio_%28Michelangelo_Merisi%29_-_The_Cardsharps_-_Google_Art_Project.jpg/960px-Caravaggio_%28Michelangelo_Merisi%29_-_The_Cardsharps_-_Google_Art_Project.jpg)
+![The Cardsharps](./painting.jpg)
 
 *"The Cardsharps" (c. 1594) by Caravaggio — [Wikipedia](https://en.wikipedia.org/wiki/The_Cardsharps)*
 
